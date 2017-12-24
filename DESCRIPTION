@@ -1,0 +1,12 @@
+Package: GVTr
+Type: Package
+Title: Global Value Trees in R
+Version: 0.1.0
+Author: Matthew Smith
+Maintainer: Matthew Smith <matthew.smith@anthro.ox.ac.uk>
+Description: Extracts and plots global value trees.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports:igraph,decompr,dplyr,plyr,ggplot2,GGally,intergraph,sna
+RoxygenNote: 6.0.1
