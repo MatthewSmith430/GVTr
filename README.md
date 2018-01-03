@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 GVTr
 ================
 
@@ -19,6 +20,21 @@ Packages
 This package uses a number of other packages.
 
 ``` r
+=======
+# GVTr - Global Value Trees in R
+This package presents a set of functions to implement the Global Value Tree (GVT) analysis approach of world input-output data (WIOD) developed by:  
+Zhu Z, Puliga M, Cerina F, Chessa A, Riccaboni M (2015) Global Value Trees. PLoS ONE 10(5): e0126699. <https://doi.org/10.1371/journal.pone.0126699>
+
+The packagae allows you to:  
+-Load WIOD data for 2000 - 2014  
+-Create a value added contribution matrix/edgelist/network from the WIOD  
+-Create a GVT for a root country-industry node  
+-Plot GVT  
+
+## Packages
+This package uses a number of other packages.
+```{r packages,eval=FALSE}
+>>>>>>> 49bd0f89d1b6bced89ff1896c6b09b5ac0a3a045
 library(igraph)
 library(dplyr)
 library(plyr)
@@ -149,6 +165,14 @@ Value Added Contribution matrix/edgelist/network
 The following functions creates a value added contribution objects from the wiot data.
 
 ``` r
+=======
+## Load Data
+You can load the WIOD using the following:
+```{r data,eval=FALSE}
+data("wiot2000")
+```
+This load in the world-input output table, in the above example, this is loaded for the year 2000 (years 2000-2014 are currently available)
+
 EL<-VACel(wiot2000) #Value added contribution edgelist
 NET<-VACnet(wiot2000) #Value added contribution network
 MAT<-VACmat(wiot2000) #Value added contribution matrix
@@ -661,3 +685,120 @@ Below is the coverage of the 2016 WIOD release. It lists the sectors covered - i
 |        HUN       |      Hungary     |        TUR       |          Turkey          |
 |        IDN       |     Indonesia    |        TWN       |          Taiwan          |
 |        IND       |       India      |        USA       | United States of America |
+=======
+## GVT - Tree Prune
+This command creates a Global Value Tree (as an igraph object) for specific root country-industry node. In creating this GVT - we examine the ties incoming, directed towards the root node.  
+The edge threshold is employed as the complete and unfiltered Global Value Network is almost completely connected, therefore an edge threshold aids in helping retain only the more important value added ties. This produces a tree that shows the upstream value system of the country-industry. We only have a function for the upstream value system in the first instance, as  upstream ties are noted to be more important for many manufacturing sectors, such as the automotive sector.  
+For the `GVTprune` function, you need to specify the wiot data (that can be loaded using the package)edge threshold,root country-sector node, (see <http://www.wiod.org/release16> for data description and coverage details) and the maximum number of layers to be included in the GVT.  
+
+```{r TreePrune,eval=FALSE}
+#Example Root Node - USA Automotive Sector
+USAauto<-GVTprune(wiot2000,0.019,"USA.C29",5)
+```
+## Plots
+There are two plot options that come with this package.  
+1.) Tree Plot - uses a tree layout to plot the GVT  
+2.) Standard network layout  
+### Tree Plot
+In the tree plot, the nodes are coloured by country or industry. The root node is at the top of the tree. You need to specify the GVT (calculated using `GVTprune`) and what you want the colour to be country/industry.  
+```{r TreePlot,eval=FALSE}
+gvtBasePlot(USAauto,"country")
+```
+
+### Standard Plot
+In this plot, the network takes a more typical layout (and not a tree layout). Node are coloured on the basis of country, and ties colour indicates whether links are intra or inter country. You need to specify the GVT (calculated using `GVTprune`) and whether labels are present (TRUE/FALSE).
+```{r BasePlot,eval=FALSE}
+GVTplot(USAauto,FALSE)
+```
+
+## Coverage
+Below is the coverage of the 2016 WIOD release. It lists the sectors covered - including the sector code and corresponding description. The country coverage lists the countries codes covered and the full country name.  
+
+### Sector Coverage
+|	**Sector Code**	|	**Description**	|
+|	:---:	|	:---	|
+|	A01	|	Crop and animal production, hunting and related service activities	|
+|	A02	|	Forestry and logging	|
+|	A03	|	Fishing and aquaculture	|
+|	B	|	Mining and quarrying	|
+|	C10-C12	|	Manufacture of food products, beverages and tobacco products	|
+|	C13-C15	|	Manufacture of textiles, wearing apparel and leather products	|
+|	C16	|	Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and plaiting materials	|
+|	C17	|	Manufacture of paper and paper products	|
+|	C18	|	Printing and reproduction of recorded media	|
+|	C19	|	Manufacture of coke and refined petroleum products 	|
+|	C20	|	Manufacture of chemicals and chemical products 	|
+|	C21	|	Manufacture of basic pharmaceutical products and pharmaceutical preparations	|
+|	C22	|	Manufacture of rubber and plastic products	|
+|	C23	|	Manufacture of other non-metallic mineral products	|
+|	C24	|	Manufacture of basic metals	|
+|	C25	|	Manufacture of fabricated metal products, except machinery and equipment	|
+|	C26	|	Manufacture of computer, electronic and optical products	|
+|	C27	|	Manufacture of electrical equipment	|
+|	C28	|	Manufacture of machinery and equipment n.e.c.	|
+|	C29	|	Manufacture of motor vehicles, trailers and semi-trailers	|
+|	C30	|	Manufacture of other transport equipment	|
+|	C31_C32	|	Manufacture of furniture; other manufacturing	|
+|	C33	|	Repair and installation of machinery and equipment	|
+|	D35	|	Electricity, gas, steam and air conditioning supply	|
+|	E36	|	Water collection, treatment and supply	|
+|	E37-E39	|	Sewerage; waste collection, treatment and disposal activities; materials recovery; remediation activities and other waste management services 	|
+|	F	|	Construction	|
+|	G45	|	Wholesale and retail trade and repair of motor vehicles and motorcycles	|
+|	G46	|	Wholesale trade, except of motor vehicles and motorcycles	|
+|	G47	|	Retail trade, except of motor vehicles and motorcycles	|
+|	H49	|	Land transport and transport via pipelines	|
+|	H50	|	Water transport	|
+|	H51	|	Air transport	|
+|	H52	|	Warehousing and support activities for transportation	|
+|	H53	|	Postal and courier activities	|
+|	I	|	Accommodation and food service activities	|
+|	J58	|	Publishing activities	|
+|	J59_J60	|	Motion picture, video and television programme production, sound recording and music publishing activities; programming and broadcasting activities	|
+|	J61	|	Telecommunications	|
+|	J62_J63	|	Computer programming, consultancy and related activities; information service activities	|
+|	K64	|	Financial service activities, except insurance and pension funding	|
+|	K65	|	Insurance, reinsurance and pension funding, except compulsory social security	|
+|	K66	|	Activities auxiliary to financial services and insurance activities	|
+|	L68	|	Real estate activities	|
+|	M69_M70	|	Legal and accounting activities; activities of head offices; management consultancy activities	|
+|	M71	|	Architectural and engineering activities; technical testing and analysis	|
+|	M72	|	Scientific research and development	|
+|	M73	|	Advertising and market research	|
+|	M74_M75	|	Other professional, scientific and technical activities; veterinary activities	|
+|	N	|	Administrative and support service activities	|
+|	O84	|	Public administration and defence; compulsory social security	|
+|	P85	|	Education	|
+|	Q	|	Human health and social work activities	|
+|	R_S	|	Other service activities	|
+|	T	|	Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use	|
+|	U	|	Activities of extraterritorial organizations and bodies	|
+
+### Country Coverage
+|	**Country Code**	|	**Country Name**	|	**Country Code**	|	**Country Name**	|
+|	:---:	|	:---:	|	:---:	|	:---:	|
+|	AUS	|	Australia	|	IRL	|	Ireland	|
+|	AUT	|	Austria	|	ITA	|	Italy	|
+|	BEL	|	Belgium	|	JPN	|	Japan	|
+|	BGR	|	Bulgaria	|	KOR	|	Korea	|
+|	BRA	|	Brazil	|	LTU	|	Lithuania	|
+|	CAN	|	Canada	|	LUX	|	Luxembourg	|
+|	CHE	|	Switzerland	|	LVA	|	Latvia	|
+|	CHN	|	China	|	MEX	|	Mexico	|
+|	CYP	|	Cyprus	|	MLT	|	Malta	|
+|	CZE	|	Czech Republic	|	NLD	|	Netherlands	|
+|	DEU	|	Germany	|	NOR	|	Norway	|
+|	DNK	|	Denmark	|	POL	|	Poland	|
+|	ESP	|	Spain	|	PRT	|	Portugal	|
+|	EST	|	Estonia	|	ROU	|	Romania	|
+|	FIN	|	Finland	|	ROW	|	Rest of the world	|
+|	FRA	|	France	|	RUS	|	Russia	|
+|	GBR	|	Great Britain	|	SVK	|	Slovakia	|
+|	GRC	|	Greece	|	SVN	|	Slovenia	|
+|	HRV	|	Croatia	|	SWE	|	Sweden	|
+|	HUN	|	Hungary	|	TUR	|	Turkey	|
+|	IDN	|	Indonesia	|	TWN	|	Taiwan	|
+|	IND	|	India	|	USA	|	United States of America	|
+
+
+>>>>>>> 49bd0f89d1b6bced89ff1896c6b09b5ac0a3a045
