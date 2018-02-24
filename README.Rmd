@@ -28,8 +28,6 @@ library(GGally)
 library(intergraph)
 library(sna)
 library(decompr)
-#I would recommend installing decompr using:
-#devtools::install_github("bquast/decompr")
 
 #Install this package:
 #library(devtools)

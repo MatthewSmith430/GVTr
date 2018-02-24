@@ -33,12 +33,32 @@ VACnet<-function(wiot){
   va<-WI[2470,6:2469]
   va<-as.integer(va)
 
-  G<-decompr::decomp(x = inter2,
-                     y = final2,
-                     k=countries,
-                     i=industries,
-                     o= output,
-                     method = "leontief",post="none",long=FALSE)
+  #G<-decompr::decomp(x = inter2,
+  #                   y = final2,
+  #                   k=countries,
+  #                   i=industries,
+  #                   o= output,
+  #                   v=va,
+  #                   method = "leontief",post="none",long=FALSE)
+  decompr_obj <- decompr::load_tables_vectors(x = inter2,
+                                     y = final2,
+                                     k=countries,
+                                     i=industries,
+                                     o= output,
+                                     v=va)
+  V <- decompr_obj$Vc * decompr_obj$B
+  out<-V
+  out <- as.data.frame(out)
+  names(out) <- decompr_obj$rownam
+  row.names(out) <- decompr_obj$rownam
+  attr(out, "long") <- FALSE
+  ## set long attribute to FALSE
+  attr(out, "long") <- FALSE
+  attr(out, "k") <- decompr_obj$k
+  attr(out, "i") <- decompr_obj$i
+  attr(out, "decomposition") <- "leontief"
+  #out<-decompr::leontief(decompr_obj,post="none",long=FALSE)
+  G<-out
   G<-as.matrix(G)
   G[is.na(G)]=0
   diag(G)<-0
