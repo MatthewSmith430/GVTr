@@ -27,8 +27,6 @@ library(GGally)
 library(intergraph)
 library(sna)
 library(decompr)
-#I would recommend installing decompr using:
-#devtools::install_github("bquast/decompr")
 
 #Install this package:
 #library(devtools)
@@ -76,7 +74,10 @@ Plots
 There are two plot options that come with this package.
 1.) Tree Plot - uses a tree layout to plot the GVT
 2.) Standard network layout
-\#\#\# Tree Plot In the tree plot, the nodes are coloured by country or industry. The root node is at the top of the tree. You need to specify the GVT (calculated using `GVTprune`) and what you want the colour to be country/industry.
+
+### Tree Plot
+
+In the tree plot, the nodes are coloured by country or industry. The root node is at the top of the tree. You need to specify the GVT (calculated using `GVTprune`) and what you want the colour to be country/industry.
 
 ``` r
 library(GVTr)
@@ -91,6 +92,7 @@ data("wiot2000")
 ##Create Tree
 USAauto<-GVTprune(wiot2000,0.019,"USA.C29",5)
 ```
+
 
 ``` r
 ##Create Plot
@@ -118,7 +120,6 @@ data("wiot2008")
 USAauto2000<-GVTprune(wiot2000,0.019,"USA.C29",5)
 ```
 
-
 ``` r
 USAauto2004<-GVTprune(wiot2004,0.019,"USA.C29",5)
 ```
@@ -143,8 +144,6 @@ p3 %<a-% {
 ##Plot GVTs
 split.screen(c(1, 3))
 ```
-
-    ## [1] 1 2 3
 
 ``` r
 screen(1)
@@ -181,8 +180,39 @@ USAauto<-GVTprune(wiot2000,0.019,"USA.C29",5)
 GVTplot(USAauto,FALSE)
 ```
 
-
 ![](README_files/figure-markdown_github/BasePlot-1.png)
+
+### Additional Plots
+
+There are additional plot functions, that use other packages, that with specialised functions to plots tree strucutres. The example we present here is the `networkD3` package, and draw on `data.tree` for processing the data into the correct form.
+
+``` r
+library(GVTr)
+library(networkD3)
+library(data.tree)
+library(igraph)
+##Load Data
+data("wiot2008")
+
+##Create Tree
+USAauto<-GVTprune(wiot2008,0.019,"USA.C29",5)
+
+##Use data.tree to process the data into a hierarchical 
+##list that can be ploted with networkD3
+GVTdf<-get.data.frame(USAauto) ##Get data frame from igraph objecy
+tree1 <- FromDataFrameNetwork(GVTdf) 
+tree2 <- ToListExplicit(tree1, unname = TRUE) ##identify root node of tree
+
+###THe following commands with produce html visualisations
+
+##Diagonal Plot
+diagonalNetwork(tree2,nodeColour = "red")
+
+##Radial Plot
+radialNetwork(List = tree2, 
+              nodeColour = "blue",
+              fontSize = 6, opacity = 0.9)
+```
 
 Coverage
 --------
