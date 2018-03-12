@@ -7,11 +7,15 @@ Global Value Trees in R
 This package presents a set of functions to implement the Global Value Tree (GVT) analysis approach of world input-output data (WIOD) developed by:
 Zhu Z, Puliga M, Cerina F, Chessa A, Riccaboni M (2015) Global Value Trees. PLoS ONE 10(5): e0126699. <https://doi.org/10.1371/journal.pone.0126699>
 
-The packagae allows you to:
--Load WIOD data for 2000 - 2014
--Create a value added contribution matrix/edgelist/network from the WIOD
--Create a GVT for a root country-industry node
--Plot GVT
+The package allows you to:  
+
+-Load WIOD data for 2000 - 2014  
+
+-Create a value added contribution matrix/edgelist/network from the WIOD  
+
+-Create a GVT for a root country-industry node  
+
+-Plot GVT  
 
 Packages
 --------
