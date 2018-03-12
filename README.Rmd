@@ -96,7 +96,6 @@ The `pryr` package can be used to plot a panel of tree plots, showing visualisat
 ```{r TreePlotCOW,eval=TRUE}
 library(GVTr)
 library(igraph)
-library(plyr)
 library(pryr)
 ##Load Data
 data("wiot2000")

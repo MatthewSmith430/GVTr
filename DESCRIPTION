@@ -1,7 +1,7 @@
 Package: GVTr
 Type: Package
 Title: Global Value Trees in R
-Version: 0.1.0
+Version: 0.2.0
 Author: Matthew Smith
 Maintainer: Matthew Smith <matthew.smith@anthro.ox.ac.uk>
 Description: Extracts and plots global value trees.

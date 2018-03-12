@@ -106,7 +106,6 @@ The `pryr` package can be used to plot a panel of tree plots, showing visualisat
 ``` r
 library(GVTr)
 library(igraph)
-library(plyr)
 library(pryr)
 ```
 
@@ -203,7 +202,7 @@ GVTdf<-get.data.frame(USAauto) ##Get data frame from igraph objecy
 tree1 <- FromDataFrameNetwork(GVTdf) 
 tree2 <- ToListExplicit(tree1, unname = TRUE) ##identify root node of tree
 
-###THe following commands with produce html visualisations
+###The following commands will produce html visualisations
 
 ##Diagonal Plot
 diagonalNetwork(tree2,nodeColour = "red")
@@ -213,6 +212,10 @@ radialNetwork(List = tree2,
               nodeColour = "blue",
               fontSize = 6, opacity = 0.9)
 ```
+![](README_files/figure-markdown_github/diagonalplot.png)
+
+![](README_files/figure-markdown_github/radialplot.png)
+
 
 Coverage
 --------
