@@ -178,10 +178,10 @@ radialNetwork(List = tree2,
 ```
   
   
-## Coverage
+# Coverage
 Below is the coverage of the 2016 WIOD release. It lists the sectors covered - including the sector code and corresponding description. The country coverage lists the countries codes covered and the full country name.  
 
-### Sector Coverage
+## Sector Coverage
 |	**Sector Code**	|	**Description**	|
 |	:---:	|	:---	|
 |	A01	|	Crop and animal production, hunting and related service activities	|
@@ -241,7 +241,7 @@ Below is the coverage of the 2016 WIOD release. It lists the sectors covered - i
 |	T	|	Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use	|
 |	U	|	Activities of extraterritorial organizations and bodies	|
 
-### Country Coverage
+## Country Coverage
 |	**Country Code**	|	**Country Name**	|	**Country Code**	|	**Country Name**	|
 |	:---:	|	:---:	|	:---:	|	:---:	|
 |	AUS	|	Australia	|	IRL	|	Ireland	|
