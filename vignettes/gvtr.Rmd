@@ -176,7 +176,7 @@ GVTdf<-get.data.frame(USAauto) ##Get data frame from igraph objecy
 tree1 <- FromDataFrameNetwork(GVTdf) 
 tree2 <- ToListExplicit(tree1, unname = TRUE) ##identify root node of tree
 
-###THe following commands with produce html visualisations
+###The following commands with produce html visualisations
 
 ##Diagonal Plot
 diagonalNetwork(tree2,nodeColour = "red")

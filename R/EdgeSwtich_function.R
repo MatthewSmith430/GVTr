@@ -6,12 +6,12 @@
 #' @return graph object with edges switched
 
 switchEdge<-function(g){
-  e<-get.data.frame(g,what="edges")
+  e<-igraph::get.data.frame(g,what="edges")
   neworder<-1:length(e)
   neworder[1:2]<-c(2,1)
   e<-e[neworder]
   names(e)<-names(e)[neworder]
-  graph.data.frame(e, vertices=get.data.frame(g,what="vertices"))
+  #igraph::graph.data.frame(e, vertices=igraph::get.data.frame(g,what="vertices"))
   e$Weight<-NULL
   return(e)
 }

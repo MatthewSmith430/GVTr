@@ -46,7 +46,7 @@ VACel<-function(wiot){
   WEL<- igraph::graph.adjacency(G,weighted=TRUE)
   WEL2<-igraph::get.edgelist(WEL)
   WEL2<-as.data.frame(WEL2)
-  WEL2$weight<-E(WEL)$weight
+  WEL2$weight<-igraph::E(WEL)$weight
   return(WEL2)
 
 }

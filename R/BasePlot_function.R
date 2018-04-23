@@ -9,7 +9,7 @@
 
 gvtBasePlot<-function(g,COL){
   lo3<-GVTlayout
-  NAMElist<-V(g)$id
+  NAMElist<-igraph::V(g)$id
   countryLIST<-list()
   industryLIST<-list()
   for (i in 1:length(NAMElist)){
@@ -19,24 +19,24 @@ gvtBasePlot<-function(g,COL){
     countryLIST[[i]]<-RB[1]
     industryLIST[[i]]<-RB[2]
   }
-  dfCOUNTRY<-ldply(countryLIST, data.frame)
+  dfCOUNTRY<-plyr::ldply(countryLIST, data.frame)
   colnames(dfCOUNTRY)<-"CountryCode"
   CountryAttr<-as.factor(dfCOUNTRY$CountryCode)
-  V(g)$country<-CountryAttr
+  igraph::V(g)$country<-CountryAttr
 
-  dfindustry<-ldply(industryLIST,data.frame)
+  dfindustry<-plyr::ldply(industryLIST,data.frame)
   colnames(dfindustry)<-"IndustryCode"
   IndustryAttr<-as.factor(dfindustry$IndustryCode)
-  V(g)$industry<-IndustryAttr
+  igraph::V(g)$industry<-IndustryAttr
   if (COL=="country"){
-    plot(g,vertex.label=NA,vertex.size=5,edge.arrow.size=.1,edge.width=1.7,
-         layout=lo3,vertex.color=V(g)$country)
+    igraph::plot.igraph(g,vertex.label=NA,vertex.size=5,edge.arrow.size=.1,edge.width=1.7,
+         layout=lo3,vertex.color=igraph::V(g)$country)
   } else if (COL=="industry"){
-    plot(g,vertex.label=NA,vertex.size=5,edge.arrow.size=.1,edge.width=1.7,
-         layout=lo3,vertex.color=V(g)$industry)
+    igraph::plot.igraph(g,vertex.label=NA,vertex.size=5,edge.arrow.size=.1,edge.width=1.7,
+         layout=lo3,vertex.color=igraph::V(g)$industry)
   } else {
-    plot(g,vertex.label=NA,vertex.size=5,edge.arrow.size=.1,edge.width=1.7,
-         layout=lo3,vertex.color=V(g)$country)
+    igraph::plot.igraph(g,vertex.label=NA,vertex.size=5,edge.arrow.size=.1,edge.width=1.7,
+         layout=lo3,vertex.color=igraph::V(g)$country)
   }
 }
 
