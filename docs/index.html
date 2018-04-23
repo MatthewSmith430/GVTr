@@ -212,8 +212,16 @@ USAauto&lt;-<span class="kw"><a href="reference/GVTprune.html">GVTprune</a></spa
 <a href="#tree-plot" class="anchor"></a>Tree Plot</h3>
 <p>In the tree plot, the nodes are coloured by country or industry. The root node is at the top of the tree. You need to specify the GVT (calculated using <code>GVTprune</code>) and what you want the colour to be country/industry.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GVTr)
-<span class="kw">library</span>(igraph)
-<span class="kw">library</span>(plyr)
+<span class="kw">library</span>(igraph)</code></pre></div>
+<pre><code>## 
+## Attaching package: 'igraph'</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     decompose, spectrum</code></pre>
+<pre><code>## The following object is masked from 'package:base':
+## 
+##     union</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plyr)
 ##Load Data
 <span class="kw">data</span>(<span class="st">"wiot2000"</span>)
 
@@ -308,6 +316,47 @@ USAauto&lt;-<span class="kw"><a href="reference/GVTprune.html">GVTprune</a></spa
 ## is not a multiple of vector length (arg 1)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">##Create Plot
 <span class="kw"><a href="reference/GVTplot.html">GVTplot</a></span>(USAauto,<span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## Loading required package: network</code></pre>
+<pre><code>## network: Classes for Relational Data
+## Version 1.13.0.1 created on 2015-08-31.
+## copyright (c) 2005, Carter T. Butts, University of California-Irvine
+##                     Mark S. Handcock, University of California -- Los Angeles
+##                     David R. Hunter, Penn State University
+##                     Martina Morris, University of Washington
+##                     Skye Bender-deMoll, University of Washington
+##  For citation information, type citation("network").
+##  Type help("network-package") to get started.</code></pre>
+<pre><code>## 
+## Attaching package: 'network'</code></pre>
+<pre><code>## The following object is masked from 'package:plyr':
+## 
+##     is.discrete</code></pre>
+<pre><code>## The following objects are masked from 'package:igraph':
+## 
+##     %c%, %s%, add.edges, add.vertices, delete.edges,
+##     delete.vertices, get.edge.attribute, get.edges,
+##     get.vertex.attribute, is.bipartite, is.directed,
+##     list.edge.attributes, list.vertex.attributes,
+##     set.edge.attribute, set.vertex.attribute</code></pre>
+<pre><code>## Loading required package: sna</code></pre>
+<pre><code>## Loading required package: statnet.common</code></pre>
+<pre><code>## 
+## Attaching package: 'statnet.common'</code></pre>
+<pre><code>## The following object is masked from 'package:base':
+## 
+##     order</code></pre>
+<pre><code>## sna: Tools for Social Network Analysis
+## Version 2.4 created on 2016-07-23.
+## copyright (c) 2005, Carter T. Butts, University of California-Irvine
+##  For citation information, type citation("sna").
+##  Type help(package="sna") to get started.</code></pre>
+<pre><code>## 
+## Attaching package: 'sna'</code></pre>
+<pre><code>## The following objects are masked from 'package:igraph':
+## 
+##     betweenness, bonpow, closeness, components, degree,
+##     dyad.census, evcent, hierarchy, is.connected, neighborhood,
+##     triad.census</code></pre>
 <pre><code>## Loading required package: scales</code></pre>
 <p><img src="index_files/figure-html/BasePlot-1.png" width="700"></p>
 </div>

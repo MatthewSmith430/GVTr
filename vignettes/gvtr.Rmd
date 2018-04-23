@@ -192,7 +192,7 @@ Below is the coverage of the 2016 WIOD release. It lists the sectors covered - i
 
 ### Sector Coverage
 |	**Sector Code**	|	**Description**	|
-|	:---:	|	:---	|
+|	:----:	|	:------------------------------------------------------	|
 |	A01	|	Crop and animal production, hunting and related service activities	|
 |	A02	|	Forestry and logging	|
 |	A03	|	Fishing and aquaculture	|
