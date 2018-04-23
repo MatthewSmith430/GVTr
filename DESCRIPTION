@@ -3,6 +3,7 @@ Type: Package
 Title: Global Value Trees in R
 Version: 0.2.0
 Author: Matthew Smith
+Authors@R: person("Matthew", "Smith", role = c("aut", "cre"), email = "matthew.smith@anthro.ox.ac.uk")
 Maintainer: Matthew Smith <matthew.smith@anthro.ox.ac.uk>
 Description: Extracts and plots global value trees.
 License: CC0
@@ -14,3 +15,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://matthewsmith.rbind.io
+BugReports: https://github.com/MatthewSmith430/GVTr/issues
