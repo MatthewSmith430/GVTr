@@ -9,7 +9,7 @@ Description: Extracts and plots global value trees.
 License: CC0
 Encoding: UTF-8
 LazyData: true
-Imports: devtools,igraph,decompr,dplyr,plyr,ggplot2,GGally,intergraph,sna,pryr
+Imports: igraph,decompr,dplyr,plyr,ggplot2,GGally,intergraph,sna,pryr,networkD3,data.tree
 RoxygenNote: 6.0.1
 Suggests: 
     knitr,
