@@ -66,13 +66,13 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+      </header><script src="gvtr_files/htmlwidgets-1.0/htmlwidgets.js"></script><script src="gvtr_files/d3-4.5.0/d3.min.js"></script><script src="gvtr_files/diagonalNetwork-binding-0.4/diagonalNetwork.js"></script><script src="gvtr_files/radialNetwork-binding-0.4/radialNetwork.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>GVTr</h1>
                         <h4 class="author">Matthew Smith</h4>
             
-            <h4 class="date">2018-04-23</h4>
+            <h4 class="date">2018-04-24</h4>
       
       
       <div class="hidden name"><code>gvtr.Rmd</code></div>
@@ -147,26 +147,12 @@ USAauto&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></
 <p>In the tree plot, the nodes are coloured by country or industry. The root node is at the top of the tree. You need to specify the GVT (calculated using <code>GVTprune</code>) and what you want the colour to be country/industry.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GVTr)
 <span class="kw">library</span>(igraph)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'igraph'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     decompose, spectrum</span>
-<span class="co">#&gt; The following object is masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     union</span>
 <span class="kw">library</span>(plyr)
 ##Load Data
 <span class="kw">data</span>(<span class="st">"wiot2000"</span>)
 
 ##Create Tree
 USAauto&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></span>(wiot2000,<span class="fl">0.019</span>,<span class="st">"USA.C29"</span>,<span class="dv">5</span>)
-<span class="co">#&gt; Warning in igraph::distances(G1, mode = "in", algorithm = "unweighted"):</span>
-<span class="co">#&gt; Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in igraph::distances(Hgraph, mode = "in", algorithm =</span>
-<span class="co">#&gt; "unweighted"): Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in (function (..., deparse.level = 1) : number of columns of result</span>
-<span class="co">#&gt; is not a multiple of vector length (arg 1)</span>
 
 ##Create Plot
 <span class="kw"><a href="../reference/gvtBasePlot.html">gvtBasePlot</a></span>(USAauto,<span class="st">"country"</span>)</code></pre></div>
@@ -175,11 +161,6 @@ USAauto&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GVTr)
 <span class="kw">library</span>(igraph)
 <span class="kw">library</span>(pryr)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'pryr'</span>
-<span class="co">#&gt; The following object is masked from 'package:igraph':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     compose</span>
 ##Load Data
 <span class="kw">data</span>(<span class="st">"wiot2000"</span>)
 <span class="kw">data</span>(<span class="st">"wiot2004"</span>)
@@ -187,26 +168,8 @@ USAauto&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></
 
 ##Create Trees
 USAauto2000&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></span>(wiot2000,<span class="fl">0.019</span>,<span class="st">"USA.C29"</span>,<span class="dv">5</span>)
-<span class="co">#&gt; Warning in igraph::distances(G1, mode = "in", algorithm = "unweighted"):</span>
-<span class="co">#&gt; Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in igraph::distances(Hgraph, mode = "in", algorithm =</span>
-<span class="co">#&gt; "unweighted"): Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in (function (..., deparse.level = 1) : number of columns of result</span>
-<span class="co">#&gt; is not a multiple of vector length (arg 1)</span>
 USAauto2004&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></span>(wiot2004,<span class="fl">0.019</span>,<span class="st">"USA.C29"</span>,<span class="dv">5</span>)
-<span class="co">#&gt; Warning in igraph::distances(G1, mode = "in", algorithm = "unweighted"):</span>
-<span class="co">#&gt; Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in igraph::distances(Hgraph, mode = "in", algorithm =</span>
-<span class="co">#&gt; "unweighted"): Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in (function (..., deparse.level = 1) : number of columns of result</span>
-<span class="co">#&gt; is not a multiple of vector length (arg 1)</span>
 USAauto2008&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></span>(wiot2008,<span class="fl">0.019</span>,<span class="st">"USA.C29"</span>,<span class="dv">5</span>)
-<span class="co">#&gt; Warning in igraph::distances(G1, mode = "in", algorithm = "unweighted"):</span>
-<span class="co">#&gt; Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in igraph::distances(Hgraph, mode = "in", algorithm =</span>
-<span class="co">#&gt; "unweighted"): Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in (function (..., deparse.level = 1) : number of columns of result</span>
-<span class="co">#&gt; is not a multiple of vector length (arg 1)</span>
 
 ##Create &amp; save plots using gvtBasePlot &amp; pryr
 p1 %&lt;a-%<span class="st"> </span>{
@@ -244,57 +207,9 @@ p3</code></pre></div>
 
 ##Create Tree
 USAauto&lt;-<span class="kw"><a href="../reference/GVTprune.html">GVTprune</a></span>(wiot2000,<span class="fl">0.019</span>,<span class="st">"USA.C29"</span>,<span class="dv">5</span>)
-<span class="co">#&gt; Warning in igraph::distances(G1, mode = "in", algorithm = "unweighted"):</span>
-<span class="co">#&gt; Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in igraph::distances(Hgraph, mode = "in", algorithm =</span>
-<span class="co">#&gt; "unweighted"): Unweighted algorithm chosen, weights ignored</span>
-<span class="co">#&gt; Warning in (function (..., deparse.level = 1) : number of columns of result</span>
-<span class="co">#&gt; is not a multiple of vector length (arg 1)</span>
 
 ##Create Plot
-<span class="kw"><a href="../reference/GVTplot.html">GVTplot</a></span>(USAauto,<span class="ot">FALSE</span>)
-<span class="co">#&gt; Loading required package: network</span>
-<span class="co">#&gt; network: Classes for Relational Data</span>
-<span class="co">#&gt; Version 1.13.0.1 created on 2015-08-31.</span>
-<span class="co">#&gt; copyright (c) 2005, Carter T. Butts, University of California-Irvine</span>
-<span class="co">#&gt;                     Mark S. Handcock, University of California -- Los Angeles</span>
-<span class="co">#&gt;                     David R. Hunter, Penn State University</span>
-<span class="co">#&gt;                     Martina Morris, University of Washington</span>
-<span class="co">#&gt;                     Skye Bender-deMoll, University of Washington</span>
-<span class="co">#&gt;  For citation information, type citation("network").</span>
-<span class="co">#&gt;  Type help("network-package") to get started.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'network'</span>
-<span class="co">#&gt; The following object is masked from 'package:plyr':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     is.discrete</span>
-<span class="co">#&gt; The following objects are masked from 'package:igraph':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     %c%, %s%, add.edges, add.vertices, delete.edges,</span>
-<span class="co">#&gt;     delete.vertices, get.edge.attribute, get.edges,</span>
-<span class="co">#&gt;     get.vertex.attribute, is.bipartite, is.directed,</span>
-<span class="co">#&gt;     list.edge.attributes, list.vertex.attributes,</span>
-<span class="co">#&gt;     set.edge.attribute, set.vertex.attribute</span>
-<span class="co">#&gt; Loading required package: sna</span>
-<span class="co">#&gt; Loading required package: statnet.common</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'statnet.common'</span>
-<span class="co">#&gt; The following object is masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     order</span>
-<span class="co">#&gt; sna: Tools for Social Network Analysis</span>
-<span class="co">#&gt; Version 2.4 created on 2016-07-23.</span>
-<span class="co">#&gt; copyright (c) 2005, Carter T. Butts, University of California-Irvine</span>
-<span class="co">#&gt;  For citation information, type citation("sna").</span>
-<span class="co">#&gt;  Type help(package="sna") to get started.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'sna'</span>
-<span class="co">#&gt; The following objects are masked from 'package:igraph':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     betweenness, bonpow, closeness, components, degree,</span>
-<span class="co">#&gt;     dyad.census, evcent, hierarchy, is.connected, neighborhood,</span>
-<span class="co">#&gt;     triad.census</span>
-<span class="co">#&gt; Loading required package: scales</span></code></pre></div>
+<span class="kw"><a href="../reference/GVTplot.html">GVTplot</a></span>(USAauto,<span class="ot">FALSE</span>)</code></pre></div>
 <p><img src="gvtr_files/figure-html/BasePlot-1.png" width="700"></p>
 </div>
 <div id="additional-plots" class="section level3">
@@ -320,12 +235,15 @@ tree2 &lt;-<span class="st"> </span><span class="kw">ToListExplicit</span>(tree1
 ###The following commands with produce html visualisations
 
 ##Diagonal Plot
-<span class="kw">diagonalNetwork</span>(tree2,<span class="dt">nodeColour =</span> <span class="st">"red"</span>)
-
+<span class="kw">diagonalNetwork</span>(tree2,<span class="dt">nodeColour =</span> <span class="st">"red"</span>)</code></pre></div>
+<div id="htmlwidget-58690a9466ad7ec453df" style="width:700px;height:432.632880098888px;" class="diagonalNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-58690a9466ad7ec453df">{"x":{"root":{"name":"USA.C29","children":[{"name":"USA.C24","weight":0.0308666918011608,"children":[{"name":"USA.B","weight":0.123875669342634},{"name":"USA.D35","weight":0.0431925549457071,"children":[{"name":"CAN.B","weight":0.0196928127803523,"children":[{"name":"CAN.K64","weight":0.0603964068309067,"children":[{"name":"CAN.J61","weight":0.0259221375511347},{"name":"CAN.J62_J63","weight":0.022646755037146},{"name":"CAN.K65","weight":0.0256583751995445},{"name":"CAN.L68","weight":0.0294591177258778},{"name":"CAN.M69_M70","weight":0.0244797116957923},{"name":"CAN.N","weight":0.0328555069553436}]}]}]},{"name":"USA.E37-E39","weight":0.0617425182302132},{"name":"USA.H49","weight":0.0605196713719208,"children":[{"name":"USA.C19","weight":0.0256791262108503,"children":[{"name":"MEX.B","weight":0.0246681629052153,"children":[{"name":"MEX.N","weight":0.025389643771712}]}]},{"name":"USA.H52","weight":0.0248666271523384},{"name":"USA.H53","weight":0.0193214257236355}]},{"name":"USA.O84","weight":0.0468517253031353},{"name":"ROW.B","weight":0.0709620733595777,"children":[{"name":"ROW.D35","weight":0.0482038841246964,"children":[{"name":"ROW.K64","weight":0.024160114620585}]}]}]},{"name":"USA.C25","weight":0.0381955536606159,"children":[{"name":"USA.B","weight":0.041193648554125}]},{"name":"USA.G46","weight":0.0840038080404778,"children":[{"name":"USA.L68","weight":0.0622296985655343,"children":[{"name":"USA.F","weight":0.0233830397347232,"children":[{"name":"USA.G47","weight":0.0355613193421549}]}]}]},{"name":"USA.M69_M70","weight":0.0541119370678821,"children":[{"name":"USA.L68","weight":0.0332087451184707,"children":[{"name":"USA.F","weight":0.0233830397347232,"children":[{"name":"USA.G47","weight":0.0355613193421549}]}]},{"name":"USA.K64","weight":0.0217580530951546,"children":[{"name":"USA.K66","weight":0.0233580330641383,"children":[{"name":"USA.J61","weight":0.027580204890942,"children":[{"name":"USA.J59_J60","weight":0.0554044608024988}]},{"name":"USA.J62_J63","weight":0.0391662127167323},{"name":"USA.K65","weight":0.0315145795668673},{"name":"USA.M71","weight":0.026346350893513}]}]}]},{"name":"USA.N","weight":0.0244781306198733,"children":[{"name":"USA.L68","weight":0.0268361313927214,"children":[{"name":"USA.F","weight":0.0233830397347232,"children":[{"name":"USA.G47","weight":0.0355613193421549}]}]},{"name":"USA.K64","weight":0.0244838500717413,"children":[{"name":"USA.K66","weight":0.0233580330641383,"children":[{"name":"USA.J61","weight":0.027580204890942,"children":[{"name":"USA.J59_J60","weight":0.0554044608024988}]},{"name":"USA.J62_J63","weight":0.0391662127167323},{"name":"USA.K65","weight":0.0315145795668673},{"name":"USA.M71","weight":0.026346350893513}]}]}]}]},"options":{"height":null,"width":null,"fontSize":10,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"red","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script><div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 ##Radial Plot
 <span class="kw">radialNetwork</span>(<span class="dt">List =</span> tree2, 
               <span class="dt">nodeColour =</span> <span class="st">"blue"</span>,
               <span class="dt">fontSize =</span> <span class="dv">6</span>, <span class="dt">opacity =</span> <span class="fl">0.9</span>)</code></pre></div>
+<div id="htmlwidget-e99556e3f1320f48145e" style="width:700px;height:432.632880098888px;" class="radialNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e99556e3f1320f48145e">{"x":{"root":{"name":"USA.C29","children":[{"name":"USA.C24","weight":0.0308666918011608,"children":[{"name":"USA.B","weight":0.123875669342634},{"name":"USA.D35","weight":0.0431925549457071,"children":[{"name":"CAN.B","weight":0.0196928127803523,"children":[{"name":"CAN.K64","weight":0.0603964068309067,"children":[{"name":"CAN.J61","weight":0.0259221375511347},{"name":"CAN.J62_J63","weight":0.022646755037146},{"name":"CAN.K65","weight":0.0256583751995445},{"name":"CAN.L68","weight":0.0294591177258778},{"name":"CAN.M69_M70","weight":0.0244797116957923},{"name":"CAN.N","weight":0.0328555069553436}]}]}]},{"name":"USA.E37-E39","weight":0.0617425182302132},{"name":"USA.H49","weight":0.0605196713719208,"children":[{"name":"USA.C19","weight":0.0256791262108503,"children":[{"name":"MEX.B","weight":0.0246681629052153,"children":[{"name":"MEX.N","weight":0.025389643771712}]}]},{"name":"USA.H52","weight":0.0248666271523384},{"name":"USA.H53","weight":0.0193214257236355}]},{"name":"USA.O84","weight":0.0468517253031353},{"name":"ROW.B","weight":0.0709620733595777,"children":[{"name":"ROW.D35","weight":0.0482038841246964,"children":[{"name":"ROW.K64","weight":0.024160114620585}]}]}]},{"name":"USA.C25","weight":0.0381955536606159,"children":[{"name":"USA.B","weight":0.041193648554125}]},{"name":"USA.G46","weight":0.0840038080404778,"children":[{"name":"USA.L68","weight":0.0622296985655343,"children":[{"name":"USA.F","weight":0.0233830397347232,"children":[{"name":"USA.G47","weight":0.0355613193421549}]}]}]},{"name":"USA.M69_M70","weight":0.0541119370678821,"children":[{"name":"USA.L68","weight":0.0332087451184707,"children":[{"name":"USA.F","weight":0.0233830397347232,"children":[{"name":"USA.G47","weight":0.0355613193421549}]}]},{"name":"USA.K64","weight":0.0217580530951546,"children":[{"name":"USA.K66","weight":0.0233580330641383,"children":[{"name":"USA.J61","weight":0.027580204890942,"children":[{"name":"USA.J59_J60","weight":0.0554044608024988}]},{"name":"USA.J62_J63","weight":0.0391662127167323},{"name":"USA.K65","weight":0.0315145795668673},{"name":"USA.M71","weight":0.026346350893513}]}]}]},{"name":"USA.N","weight":0.0244781306198733,"children":[{"name":"USA.L68","weight":0.0268361313927214,"children":[{"name":"USA.F","weight":0.0233830397347232,"children":[{"name":"USA.G47","weight":0.0355613193421549}]}]},{"name":"USA.K64","weight":0.0244838500717413,"children":[{"name":"USA.K66","weight":0.0233580330641383,"children":[{"name":"USA.J61","weight":0.027580204890942,"children":[{"name":"USA.J59_J60","weight":0.0554044608024988}]},{"name":"USA.J62_J63","weight":0.0391662127167323},{"name":"USA.K65","weight":0.0315145795668673},{"name":"USA.M71","weight":0.026346350893513}]}]}]}]},"options":{"height":null,"width":null,"fontSize":6,"fontFamily":"serif","linkColour":"#ccc","nodeColour":"blue","nodeStroke":"steelblue","textColour":"#111","margin":{"top":null,"right":null,"bottom":null,"left":null},"opacity":0.9}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="coverage" class="section level2">
