@@ -35,7 +35,7 @@ library(decompr)
 library(GVTr)
 ```
 
-```{r packagesRUN,eval=TRUE,echo=FALSE,results='hide',cache=TRUE}
+```{r packagesRUN,eval=TRUE,echo=FALSE,results='hide',cache=TRUE,message=FALSE,warning=FALSE}
 library(igraph)
 library(dplyr)
 library(plyr)
@@ -93,7 +93,7 @@ gvtBasePlot(USAauto,"country")
 ```
   
 The `pryr` package can be used to plot a panel of tree plots, showing visualisation of the same tree over time, or showing tree in the same sector for different countries. Below is the example of a panel of plots for the USA auto sector over time.  
-```{r TreePlotCOW,eval=TRUE}
+```{r TreePlotCOW,eval=TRUE,message=FALSE,warning=FALSE}
 library(GVTr)
 library(igraph)
 library(pryr)
@@ -132,7 +132,7 @@ close.screen(all=TRUE)
   
 ### Standard Plot
 In this plot, the network takes a more typical layout (and not a tree layout). Node are coloured on the basis of country, and ties colour indicates whether links are intra or inter country. You need to specify the GVT (calculated using `GVTprune`) and whether labels are present (TRUE/FALSE).  
-```{r BasePlot,eval=TRUE}
+```{r BasePlot,eval=TRUE,message=FALSE,warning=FALSE}
 library(GVTr)
 library(ggplot2)
 library(GGally)
@@ -166,7 +166,7 @@ GVTdf<-get.data.frame(USAauto) ##Get data frame from igraph objecy
 tree1 <- FromDataFrameNetwork(GVTdf) 
 tree2 <- ToListExplicit(tree1, unname = TRUE) ##identify root node of tree
 
-###THe following commands with produce html visualisations
+###The following commands with produce html visualisations
 
 ##Diagonal Plot
 diagonalNetwork(tree2,nodeColour = "red")

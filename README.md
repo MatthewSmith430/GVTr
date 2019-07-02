@@ -7,15 +7,11 @@ Global Value Trees in R
 This package presents a set of functions to implement the Global Value Tree (GVT) analysis approach of world input-output data (WIOD) developed by:
 Zhu Z, Puliga M, Cerina F, Chessa A, Riccaboni M (2015) Global Value Trees. PLoS ONE 10(5): e0126699. <https://doi.org/10.1371/journal.pone.0126699>
 
-The package allows you to:  
-
--Load WIOD data for 2000 - 2014  
-
--Create a value added contribution matrix/edgelist/network from the WIOD  
-
--Create a GVT for a root country-industry node  
-
--Plot GVT  
+The packagae allows you to:
+-Load WIOD data for 2000 - 2014
+-Create a value added contribution matrix/edgelist/network from the WIOD
+-Create a GVT for a root country-industry node
+-Plot GVT
 
 Packages
 --------
@@ -86,9 +82,6 @@ In the tree plot, the nodes are coloured by country or industry. The root node i
 ``` r
 library(GVTr)
 library(igraph)
-```
-
-``` r
 library(plyr)
 ##Load Data
 data("wiot2000")
@@ -97,6 +90,14 @@ data("wiot2000")
 USAauto<-GVTprune(wiot2000,0.019,"USA.C29",5)
 ```
 
+    ## Warning in igraph::distances(G1, mode = "in", algorithm = "unweighted"):
+    ## Unweighted algorithm chosen, weights ignored
+
+    ## Warning in igraph::distances(Hgraph, mode = "in", algorithm =
+    ## "unweighted"): Unweighted algorithm chosen, weights ignored
+
+    ## Warning in (function (..., deparse.level = 1) : number of columns of result
+    ## is not a multiple of vector length (arg 1)
 
 ``` r
 ##Create Plot
@@ -111,9 +112,6 @@ The `pryr` package can be used to plot a panel of tree plots, showing visualisat
 library(GVTr)
 library(igraph)
 library(pryr)
-```
-
-``` r
 ##Load Data
 data("wiot2000")
 data("wiot2004")
@@ -121,17 +119,9 @@ data("wiot2008")
 
 ##Create Trees
 USAauto2000<-GVTprune(wiot2000,0.019,"USA.C29",5)
-```
-
-``` r
 USAauto2004<-GVTprune(wiot2004,0.019,"USA.C29",5)
-```
-
-``` r
 USAauto2008<-GVTprune(wiot2008,0.019,"USA.C29",5)
-```
 
-``` r
 ##Create & save plots using gvtBasePlot & pryr
 p1 %<a-% {
   gvtBasePlot(USAauto2000,"country")
@@ -147,6 +137,8 @@ p3 %<a-% {
 ##Plot GVTs
 split.screen(c(1, 3))
 ```
+
+    ## [1] 1 2 3
 
 ``` r
 screen(1)
@@ -176,9 +168,7 @@ data("wiot2000")
 
 ##Create Tree
 USAauto<-GVTprune(wiot2000,0.019,"USA.C29",5)
-```
 
-``` r
 ##Create Plot
 GVTplot(USAauto,FALSE)
 ```
@@ -206,7 +196,7 @@ GVTdf<-get.data.frame(USAauto) ##Get data frame from igraph objecy
 tree1 <- FromDataFrameNetwork(GVTdf) 
 tree2 <- ToListExplicit(tree1, unname = TRUE) ##identify root node of tree
 
-###The following commands will produce html visualisations
+###The following commands with produce html visualisations
 
 ##Diagonal Plot
 diagonalNetwork(tree2,nodeColour = "red")
@@ -216,17 +206,14 @@ radialNetwork(List = tree2,
               nodeColour = "blue",
               fontSize = 6, opacity = 0.9)
 ```
-![](README_files/figure-markdown_github/diagonalplot.png)
-
-![](README_files/figure-markdown_github/radialplot.png)
-
 
 Coverage
---------
+========
 
 Below is the coverage of the 2016 WIOD release. It lists the sectors covered - including the sector code and corresponding description. The country coverage lists the countries codes covered and the full country name.
 
-### Sector Coverage
+Sector Coverage
+---------------
 
 <table style="width:15%;">
 <colgroup>
@@ -467,7 +454,8 @@ Below is the coverage of the 2016 WIOD release. It lists the sectors covered - i
 </tbody>
 </table>
 
-### Country Coverage
+Country Coverage
+----------------
 
 | **Country Code** | **Country Name** | **Country Code** |     **Country Name**     |
 |:----------------:|:----------------:|:----------------:|:------------------------:|
