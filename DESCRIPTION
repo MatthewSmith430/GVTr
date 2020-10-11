@@ -1,16 +1,16 @@
 Package: GVTr
 Type: Package
 Title: Global Value Trees in R
-Version: 0.2.0
+Version: 0.3.0
 Author: Matthew Smith
-Authors@R: person("Matthew", "Smith", role = c("aut", "cre"), email = "matthew.smith@anthro.ox.ac.uk")
-Maintainer: Matthew Smith <matthew.smith@anthro.ox.ac.uk>
+Authors@R: person("Matthew", "Smith", role = c("aut", "cre"), email = "m.smith@greenwich.ac.uk")
+Maintainer: Matthew Smith <m.smith@greenwich.ac.uk>
 Description: Extracts and plots global value trees.
 License: CC0
 Encoding: UTF-8
 LazyData: true
-Imports: igraph,decompr,plyr,dplyr,ggplot2,GGally,intergraph,sna,pryr,networkD3,data.tree
-RoxygenNote: 6.1.0
+Imports: igraph,decompr,plyr,dplyr,ggplot2,GGally,intergraph,sna,pryr,networkD3,data.tree,tidyr,WDI
+RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown
